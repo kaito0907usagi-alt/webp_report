@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt,oneside]{jex}
+
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\topmargin}{-1.0cm}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{xcolor}
+\usepackage[cmex10]{amsmath}
+\usepackage[deluxe]{otf}
+\usepackage{booktabs}
+\usepackage{ascmac}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{float} 
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{multirow,multicol}
+\usepackage{wrapfig}
+\usepackage{listings,jvlisting} 
+
+\captionsetup{format=hang}
+\lstset{
+  basicstyle={\ttfamily\small},
+  identifierstyle={\small},
+  commentstyle={\small\itshape\color{gray}},
+  keywordstyle={\small\bfseries\color{blue}},
+  stringstyle={\small\ttfamily\color{brown}},
+  showstringspaces=false,
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+
+\begin{document}
+\input{report/ff.tex}
+\input{report/persona.tex}
+\input{report/monsterhunter.tex}
+\end{document}
