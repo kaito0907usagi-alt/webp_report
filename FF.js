@@ -5,28 +5,29 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-let station = [
-  { id:1, code:"JE01", name:"東京駅"},
-  { id:2, code:"JE07", name:"舞浜駅"},
-  { id:3, code:"JE12", name:"新習志野駅"},
-  { id:4, code:"JE13", name:"幕張豊砂駅"},
-  { id:5, code:"JE14", name:"海浜幕張駅"},
-  { id:6, code:"JE05", name:"新浦安駅"},
+let finalfantasy = [
+  { id:1, code:"FF1", name:"Final Fantasy"},
+  { id:2, code:"FF2", name:"Final Fantasy II"},
+  { id:3, code:"FF3", name:"Final Fantasy III"},
+  { id:4, code:"FF4", name:"Final Fantasy IV"},
+  { id:5, code:"FF5", name:"Final Fantasy V"},
+  { id:6, code:"FF6", name:"Final Fantasy VI"},
+  { id:7, code:"FF7", name:"Final Fantasy VII"},
+  { id:8, code:"FF8", name:"Final Fantasy VIII"},
+  { id:9, code:"FF9", name:"Final Fantasy IX"},
+  { id:10, code:"FF10", name:"Final Fantasy X"},
+  { id:11, code:"FF11", name:"Final Fantasy XI"},
+  { id:12, code:"FF12", name:"Final Fantasy XII"},
+  { id:13, code:"FF13", name:"Final Fantasy XIII"},
+  { id:14, code:"FF14", name:"Final Fantasy XIV"},
+  { id:15, code:"FF15", name:"Final Fantasy XV"},
+  { id:16, code:"FF16", name:"Final Fantasy XVI"},
+  { id:17, code:"", name:"その他"},
 ];
 
-let station2 = [
-  { id:1, code:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
-  { id:2, code:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
-  { id:3, code:"JE05", name:"新木場駅", change:"有楽町線，りんかい線", passengers:67206, distance:7.4 },
-  { id:4, code:"JE07", name:"舞浜駅", change:"舞浜リゾートライン", passengers:76156,distance:12.7 },
-  { id:5, code:"JE12", name:"新習志野駅", change:"", passengers:11655, distance:28.3 },
-  { id:6, code:"JE17", name:"千葉みなと駅", change:"千葉都市モノレール", passengers:16602, distance:39.0 },
-  { id:7, code:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
-];
-
-app.get("/keiyo", (req, res) => {
+app.get("/ff", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  res.render('db1', { data: station });
+  res.render('db1', { data: finalfantasy });
 });
 
 app.get("/keiyo_add", (req, res) => {
@@ -36,11 +37,6 @@ app.get("/keiyo_add", (req, res) => {
   let newdata = { id: id, code: code, name: name };
   station.push( newdata );
   res.render('db1', { data: station });
-});
-
-app.get("/keiyo2", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
-  res.render('keiyo2', {data: station2} );
 });
 
 // Create
@@ -98,6 +94,5 @@ app.post("/keiyo2/update/:number", (req, res) => {
   console.log( station2 );
   res.redirect('/keiyo2' );
 });
-
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
