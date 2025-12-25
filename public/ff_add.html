@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>FFタイトルを追加する</title>
+</head>
+<body>
+    <h2>FFのタイトルを追加する</h2>
+    例の通りに入力してください．<br>
+    （例）FF7Rebirth<br>
+    シリーズ：FinalFantasy7，発売日：2024，タイトル名：FINALFANTASYVII REBIRTH，対応ハード：PS5 PC，説明：FF7リメイクプロジェクト2作品目
+    <form action="/ff_add">
+        <label for="series">シリーズ</label>
+        <input type="text" name="series" id="series" required>
+
+        <label for="year">発売年</label>
+        <input type="text" name="year" id="year" required>
+
+        <label for="name">タイトル名</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="device">対応ハード</label>
+        <input type="text" name="device" id="device" required>
+
+        <label for="explanation">説明</label>
+        <input type="text" name="explanation" id="explanation" required>
+
+        <input type="submit" values="登録">
+    </form>
+</body>
+</html>
