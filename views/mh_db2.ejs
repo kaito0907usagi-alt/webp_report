@@ -1,0 +1,28 @@
+<% 
+  let displayTitle = ""; 
+  for (let item of data) {  
+      displayTitle = item.species;
+      break; 
+    }
+%>
+
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= displayTitle %>の一覧</title>
+</head>
+<body>
+  <h2><%= displayTitle %>の一覧</h2>
+  <table>
+      <% for( let row of data ) { %>
+        <td>モンスター名:<a href="/mh/<%= row.species %>/<%= row.name %>"><%= row.name %></a></td>
+        <td style="padding-left: 30px;"><a href="/mh/edit/<%= row.name %>">編集</a></td>
+        <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= row.species %>/<%= row.name %>/1">削除</a></td>
+        <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= row.species %>/<%= row.name %>/0">削除してホームに戻る</a></td></tr>
+      <% } %>
+  </table>
+  <p><a href="/public/mh_add.html">新規追加</a></p><br>
+  <p><a href="/mh">ホームに戻る</a></p>
+</body>
+</html>

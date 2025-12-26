@@ -1,0 +1,35 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+  <table>
+    <tr><td>モンスター名</td>　<td><%= data.name %></td></tr>
+    <tr><td>種族</td>　<td> <%= data.species %></td></tr>
+    <tr><td>弱点</td>　<td>  <% if (data.week && data.week.length > 0) { %>
+                                <%= data.week.join('、') %>
+                            <% } else { %>
+                                なし
+                            <% } %></td></tr>
+    <tr><td>耐性</td>　<td><% if (data.resist && data.resist.length > 0) { %>
+                                <%= data.resist.join('、') %>
+                            <% } else { %>
+                                なし
+                            <% } %></td></tr>
+    <tr><td>無効</td>　<td><% if (data.invalid && data.invalid.length > 0) { %>
+                                <%= data.invalid.join('、') %>
+                            <% } else { %>
+                                なし
+                            <% } %></td></tr>
+    <tr></tr>
+    <tr><td><a href="/mh/edit/<%= data.name %>">編集</a></td>
+      <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= data.species %>/<%= data.name %>/1">削除して戻る</a></td>
+      <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= data.species %>/<%= data.name %>/0">削除してホームに戻る</a></td></tr>
+  </table>
+  <p><a href="/mh">ホームに戻る</a></p><br>
+  <p><a href="/mh/<%= data.species %>">シリーズ一覧に戻る</a></p>
+</body>
+</html>

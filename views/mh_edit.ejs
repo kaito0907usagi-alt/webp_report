@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>データの編集</title>
+</head>
+<body>
+    <h2><%= data.name %>を編集する</h2>
+    <form action="/mh/update/<%= data.id %>" method="POST">
+        <label>モンスター名:</label>
+        <input type="text" size ="80"name="name" value="<%= data.name %>" required><br>
+        <label>種族:</label><br>
+        <select name="species" id="species" required>
+        <option value="">--1 つ選択してください--</option>
+        <% let specieslist=["牙竜種","鳥竜種","魚竜種","獣竜種","飛竜種","牙獣種","古龍種","遺存種"]　%>
+        <% for (let i =0; i < specieslist.length; i++){%>
+            <option value="<%= specieslist[i] %>"
+            <% if(data.species == specieslist[i] ){
+                %>selected
+            <%} %>
+        >
+            <%= specieslist[i]%>
+            </option>
+        <%} %>
+        
+        
+        </select><br>
+
+        <label>弱点属性:</label><br>
+        <% let elements = ["火", "水", "雷", "氷", "龍"]; %>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="week" value="<%= elements[i] %>" 
+            <% if (data.week && data.week.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>耐性属性:</label><br>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="resist" value="<%= elements[i] %>" 
+            <% if (data.resist && data.resist.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>無効属性:</label><br>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="invalid" value="<%= elements[i] %>" 
+            <% if (data.invalid && data.invalid.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <button type="submit" name="submit_btn" value="1">保存してホームに戻る</button>
+        <button type="submit" name="submit_btn" value="0">保存してシリーズ一覧に戻る</button>
+        <button type="submit" name="submit_btn" value="2">保存して詳細に戻る</button>
+    </form>
+    <p><a href="/mh/<%= data.species %>/<%= data.name %>">詳細に戻る</a></p><br>
+    <p><a href="/mh/<%= data.species %>">シリーズ一覧に戻る</a></p><br>
+    <p><a href="/mh">ホームに戻る</a></p>
+</body>
+</html>

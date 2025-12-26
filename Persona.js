@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const app = express();
 
@@ -5,99 +7,123 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-let station = [
-  { id:1, code:"JE01", name:"東京駅"},
-  { id:2, code:"JE07", name:"舞浜駅"},
-  { id:3, code:"JE12", name:"新習志野駅"},
-  { id:4, code:"JE13", name:"幕張豊砂駅"},
-  { id:5, code:"JE14", name:"海浜幕張駅"},
-  { id:6, code:"JE05", name:"新浦安駅"},
+let finalfantasy = [
+  { id:1, series:"FinalFantasyI", year:"1987-12",  name:"Final Fantasy",    main:"true", device:"ファミリーコンピューター", explanation:"FFシリーズ初タイトル" },
+  { id:2, series:"FinalFantasyII", year:"1988-12",  name:"Final Fantasy II", main:"true", device:"ファミリーコンピューター", explanation:"熟練度システム" },
+  { id:3, series:"FinalFantasyIII", year:"1990-04",  name:"Final Fantasy III",main:"true", device:"ファミリーコンピューター", explanation:"初のジョブシステム" },
+  { id:4, series:"FinalFantasyIV", year:"1991-07",  name:"Final Fantasy IV", main:"true", device:"スーパーファミリーコンピューター", explanation:"ATB初実装" },
+  { id:5, series:"FinalFantasyV", year:"1992-12",  name:"Final Fantasy V",  main:"true", device:"スーパーファミリーコンピューター", explanation:"ジョブとアビリティ" },
+  { id:6, series:"FinalFantasyVI", year:"1994-04",  name:"Final Fantasy VI", main:"true", device:"スーパーファミリーコンピューター", explanation:"魔石システム" },
+  { id:7, series:"FinalFantasyVII", year:"1997-01",  name:"Final Fantasy VII",main:"true", device:"PS", explanation:"初の3Dグラフィック" },
+  { id:8, series:"FinalFantasyVIII", year:"1999-02",  name:"Final Fantasy VIII",main:"true",device:"PS", explanation:"ジャンクションシステム" },
+  { id:9, series:"FinalFantasyIX", year:"2000-07",  name:"Final Fantasy IX", main:"true", device:"PS", explanation:"PS最後のタイトル" },
+  { id:10,series:"FinalFantasyX", year:"2001-07", name:"Final Fantasy X", main:"true", device:"PS2", explanation:"PS2での初タイトル" },
+  { id:11,series:"FinalFantasyXI", year:"2002-05", name:"Final Fantasy XI", main:"true", device:"PS2", explanation:"初のMMO" },
+  { id:12,series:"FinalFantasyXII", year:"2006-03", name:"Final Fantasy XII", main:"true", device:"PS2", explanation:"ガンビット" },
+  { id:13,series:"FinalFantasyXIII", year:"2009-12", name:"Final Fantasy XIII", main:"true", device:"PS3", explanation:"オプティマシステム" },
+  { id:14,series:"FinalFantasyXIV", year:"2010-09", name:"Final Fantasy XIV", main:"true", device:"PS5", explanation:"大失敗のMMO" },
+  { id:15,series:"FinalFantasyXV", year:"2016-11", name:"Final Fantasy XV", main:"true", device:"PS4", explanation:"オープンワールド初実装" },
+  { id:16,series:"FinalFantasyXVI", year:"2023-06", name:"Final Fantasy XVI", main:"true", device:"PS5", explanation:"初の完全アクションタイトル" },
+  { id:17,series:"FinalFantasyothers",year:"2025-09",  name:"FINALFANTASYTACTICS THE IVALICE CHRONICLES",  main:"false", device:"PS5", explanation:"タクティカルRPGの金字塔" },
 ];
 
-let station2 = [
-  { id:1, code:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
-  { id:2, code:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
-  { id:3, code:"JE05", name:"新木場駅", change:"有楽町線，りんかい線", passengers:67206, distance:7.4 },
-  { id:4, code:"JE07", name:"舞浜駅", change:"舞浜リゾートライン", passengers:76156,distance:12.7 },
-  { id:5, code:"JE12", name:"新習志野駅", change:"", passengers:11655, distance:28.3 },
-  { id:6, code:"JE17", name:"千葉みなと駅", change:"千葉都市モノレール", passengers:16602, distance:39.0 },
-  { id:7, code:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
-];
-
-app.get("/keiyo", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
-  res.render('db1', { data: station });
-});
-
-app.get("/keiyo_add", (req, res) => {
-  let id = req.query.id;
-  let code = req.query.code;
+app.get("/ff_add", (req, res) => {
+  let maxid = finalfantasy.length ? Math.max(...finalfantasy.map(item => item.id)) : 0;
+  let id = maxid + 1;
+  let series = req.query.series;
+  let year=req.query.year;
   let name = req.query.name;
-  let newdata = { id: id, code: code, name: name };
-  station.push( newdata );
-  res.render('db1', { data: station });
+  let main= req.query.main;
+  let device= req.query.device;
+  let explanation= req.query.explanation;
+  let newdata = { id: id, series: series,year: year, name: name ,main: main, device: device,explanation: explanation};
+  finalfantasy.push( newdata );
+  let select =req.query.submit_btn;
+  if(select==="1"){
+    res.redirect('/ff');
+  }else if(select==="0"){
+    res.redirect('/ff/'+series);
+  }else{
+  res.redirect('/public/ff_add.html');
+  }
 });
 
-app.get("/keiyo2", (req, res) => {
+// Read
+app.get("/ff", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  res.render('keiyo2', {data: station2} );
-});
-
-// Create
-app.get("/keiyo2/create", (req, res) => {
-  res.redirect('/public/keiyo2_new.html');
-});
-
-app.get("/keiyo2/:number", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
-  const number = req.params.number;
-  const detail = station2[ number ];
-  res.render('keiyo2_detail', {id: number, data: detail} );
-});
-
-// Delete
-app.get("/keiyo2/delete/:number", (req, res) => {
-  // 本来は削除の確認ページを表示する
-  // 本来は削除する番号が存在するか厳重にチェックする
-  // 本来ならここにDBとのやり取りが入る
-  station2.splice( req.params.number, 1 );
-  res.redirect('/keiyo2' );
-});
-
-// Create
-app.post("/keiyo2", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
-  const id = station2.length + 1;
-  const code = req.body.code;
-  const name = req.body.name;
-  const change = req.body.change;
-  const passengers = req.body.passengers;
-  const distance = req.body.distance;
-  station2.push( { id: id, code: code, name: name, change: change, passengers: passengers, distance: distance } );
-  console.log( station2 );
-  res.render('keiyo2', {data: station2} );
+  const maindata=finalfantasy.filter(item =>item.main === "true");
+  res.render('ff_db1', { data: maindata });
 });
 
 // Edit
-app.get("/keiyo2/edit/:number", (req, res) => {
+app.get("/ff/edit/:year", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  const number = req.params.number;
-  const detail = station2[ number ];
-  res.render('keiyo2_edit', {id: number, data: detail} );
+  const year = req.params.year;
+  const detail = finalfantasy.find(item=> item.year ===  year );
+  res.render('ff_edit', {data: detail} );
 });
 
 // Update
-app.post("/keiyo2/update/:number", (req, res) => {
-  // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
-  // 本来ならここにDBとのやり取りが入る
-  station2[req.params.number].code = req.body.code;
-  station2[req.params.number].name = req.body.name;
-  station2[req.params.number].change = req.body.change;
-  station2[req.params.number].passengers = req.body.passengers;
-  station2[req.params.number].distance = req.body.distance;
-  console.log( station2 );
-  res.redirect('/keiyo2' );
+app.post("/ff/update/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const idx = finalfantasy.findIndex(item => item.id === id);
+  if (idx !== -1) {
+    const series =req.body.series;
+    const year =req.body.year;
+    finalfantasy[idx].series = req.body.series;
+    finalfantasy[idx].year = req.body.year;
+    finalfantasy[idx].name = req.body.name;
+    if (req.body.main === "true") {
+      finalfantasy[idx].main = "true";
+    } else {
+      finalfantasy[idx].main = "false";
+    }
+    finalfantasy[idx].device = req.body.device;
+    finalfantasy[idx].explanation = req.body.explanation;
+
+    let select = req.body.submit_btn;
+    if (select === "1") {
+      res.redirect('/ff');
+    } else if (select === "0") {
+      res.redirect('/ff/' + series);
+    } else {
+      res.redirect('/ff/' + series + '/' + year); 
+    }
+}
+  
 });
+
+// Delete
+app.get("/ff/delete/:series/:year/:select", (req, res) => {
+  const series =req.params.series;
+  const year =req.params.year;
+  const select =req.params.select;
+  const targetid =finalfantasy.findIndex(item => item.year === year);
+  if(targetid!== -1){
+  finalfantasy.splice( targetid, 1 );
+  }
+  if(select ==1){
+  res.redirect('/ff/'+series );
+}else{
+  res.redirect('/ff');
+}
+});
+
+// 1. 中間ページ
+app.get("/ff/:series", (req, res) => {
+  const series = req.params.series;
+  const seriesdata = finalfantasy.filter(item => item.series === series);
+  res.render('ff_db2', { data: seriesdata });
+});
+
+// 2. 詳細ページ
+app.get("/ff/:series/:year", (req, res) => {
+  const series = req.params.series;
+  const year = req.params.year;
+  const detail = finalfantasy.find(item => item.series === series && item.year === year);
+  res.render('ff_detail', { data: detail });
+});
+
 
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
