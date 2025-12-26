@@ -7,10 +7,17 @@
 <body>
   <h2><%= data.name %>の詳細</h2>
   <table>
-    <tr><td>ID</td>　<td><%= data.id %></td></tr>
     <tr><td>タイトル名</td>　<td><%= data.name %></td></tr>
     <tr><td>シリーズ</td>　<td><%= data.series %></td></tr>
+    <tr><td>発売年月</td>　<td><%= data.year %></td></tr>
+    <tr><td>対応ハード</td>　<td><%= data.device %></td></tr>
     <tr><td>説明</td>　<td><%= data.explanation %></td></tr>
+    <tr></tr>
+    <tr><td><a href="/ff/edit/<%= data.year %>">編集</a></td>
+      <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= data.series %>/<%= data.year %>/1">削除して戻る</a></td>
+      <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= data.series %>/<%= data.year %>/0">削除してホームに戻る</a></td></tr>
   </table>
+  <p><a href="/ff">ホームに戻る</a></p><br>
+  <p><a href="/ff/<%= data.series %>">シリーズ一覧に戻る</a></p>
 </body>
 </html>

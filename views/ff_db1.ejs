@@ -8,8 +8,10 @@
   <h2>FFのシリーズ一覧</h2>
   <table>
       <% for( let row of data ) { %>
-        <td>シリーズ名:<a href="/FF/<%= row.series %>"><%= row.name %></a></td></tr>
+        <tr><td>シリーズ名:<a href="/ff/<%= row.series %>"><%= row.name %></a></td></tr>
       <% } %>
+        <tr><td>シリーズ名:<a href="/ff/FinalFantasyothers">その他</a></td></tr>
   </table>
+  <p><a href="/public/ff_add.html">新規追加</a></p>
 </body>
 </html>

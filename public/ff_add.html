@@ -10,22 +10,29 @@
     （例）FF7Rebirth<br>
     シリーズ：FinalFantasy7，発売日：2024，タイトル名：FINALFANTASYVII REBIRTH，対応ハード：PS5 PC，説明：FF7リメイクプロジェクト2作品目
     <form action="/ff_add">
-        <label for="series">シリーズ</label>
-        <input type="text" name="series" id="series" required>
+        <label for="series">シリーズ</label><br>
+        <input type="text" name="series" id="series" required><br>
 
-        <label for="year">発売年</label>
-        <input type="text" name="year" id="year" required>
+        <label for="year">発売年月</label><br>
+        <input type="month" name="year" id="year" required><br>
 
-        <label for="name">タイトル名</label>
-        <input type="text" name="name" id="name" required>
+        <label for="name">タイトル名</label><br>
+        <input type="text" size="80" name="name" id="name" required><br>
 
-        <label for="device">対応ハード</label>
-        <input type="text" name="device" id="device" required>
+        <label for  ="main">一作目</label><br>
+        <input type ="checkbox" name="main" id="main" value="true"><br>
 
-        <label for="explanation">説明</label>
-        <input type="text" name="explanation" id="explanation" required>
+        <label for="device">対応ハード</label><br>
+        <textarea name="device" rows="4" cols="40"></textarea><br>
 
-        <input type="submit" values="登録">
+        <label>説明:</label><br>
+        <textarea name="explanation" rows="4" cols="40"></textarea><br>
+
+        <button type="submit" name="submit_btn" value="1">保存してホームに戻る</button>
+        <button type="submit" name="submit_btn" value="0">保存してシリーズ一覧に戻る</button>
+        <button type="submit" name="submit_btn" >保存して続けて追加する</button>
+       
     </form>
+    <p><a href="/ff">保存せずホームに戻る</a></p>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>データの編集</title>
+</head>
+<body>
+    <h2><%= data.name %>を編集する</h2>
+    <form action="/ff/update/<%= data.id %>" method="POST">
+        <label>シリーズ:</label>
+        <input type="text" name="series" value="<%= data.series %>" required><br>
+
+        <label>発売年月:</label>
+        <input type="month" name="year" value="<%= data.year %>" required><br>
+
+        <label>タイトル名:</label>
+        <input type="text" size ="80"name="name" value="<%= data.name %>" required><br>
+
+        <label>対応ハード:</label><br>
+        <textarea name="device" rows="4" cols="40"><%= data.device %></textarea><br>
+
+        <label>説明:</label><br>
+        <textarea name="explanation" rows="4" cols="40"><%= data.explanation %></textarea><br>
+
+        <button type="submit" name="submit_btn" value="1">保存してホームに戻る</button>
+        <button type="submit" name="submit_btn" value="0">保存してシリーズ一覧に戻る</button>
+        <button type="submit" name="submit_btn" value="2">保存して詳細に戻る</button>
+    </form>
+    <p><a href="/ff/<%= data.series %>/<%= data.year %>">詳細に戻る</a></p><br>
+    <p><a href="/ff/<%= data.series %>">シリーズ一覧に戻る</a></p><br>
+    <p><a href="/ff">ホームに戻る</a></p>
+</body>
+</html>

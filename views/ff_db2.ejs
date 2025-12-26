@@ -1,15 +1,30 @@
+<% 
+  let displayTitle = ""; 
+  for (let item of data) { 
+    if (item.main === "true") { 
+      displayTitle = item.series;
+      break; 
+    }
+  }
+%>
+
 <!Doctype html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>FFのシリーズ一覧</title>
+  <title><%= displayTitle %>シリーズの一覧</title>
 </head>
 <body>
-  <h2>FFのシリーズ一覧</h2>
+  <h2><%= displayTitle %>シリーズの一覧</h2>
   <table>
       <% for( let row of data ) { %>
-        <td>シリーズ名:<a href="/FF/<%= row.series %>/<%= row.year %>"><%= row.name %></a></td></tr>
+        <td>シリーズ名:<a href="/ff/<%= row.series %>/<%= row.year %>"><%= row.name %></a></td>
+        <td style="padding-left: 30px;"><a href="/ff/edit/<%= row.year %>">編集</a></td>
+        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.year %>/1">削除</a></td>
+        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.year %>/0">削除してホームに戻る</a></td></tr>
       <% } %>
   </table>
+  <p><a href="/public/ff_add.html">新規追加</a></p><br>
+  <p><a href="/ff">ホームに戻る</a></p>
 </body>
 </html>
