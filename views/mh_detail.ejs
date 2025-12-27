@@ -10,19 +10,31 @@
     <tr><td>モンスター名</td>　<td><%= data.name %></td></tr>
     <tr><td>種族</td>　<td> <%= data.species %></td></tr>
     <tr><td>弱点</td>　<td>  <% if (data.week && data.week.length > 0) { %>
-                                <%= data.week.join('、') %>
+                              <% if(Array.isArray(data.week)){%>
+                                    <%= data.week.join('、') %>
+                                <% } else { %>
+                                    <%= data.week %>
+                                <% } %>
                             <% } else { %>
-                                なし
+                                  なし
                             <% } %></td></tr>
-    <tr><td>耐性</td>　<td><% if (data.resist && data.resist.length > 0) { %>
-                                <%= data.resist.join('、') %>
+    <tr><td>耐性</td>　<td>  <% if (data.resist && data.resist.length > 0) { %>
+                                <% if(Array.isArray(data.resist)){%>
+                                    <%= data.resist.join('、') %>
+                                <% } else { %>
+                                    <%= data.resist %>
+                                <% } %>
                             <% } else { %>
-                                なし
+                                  なし
                             <% } %></td></tr>
-    <tr><td>無効</td>　<td><% if (data.invalid && data.invalid.length > 0) { %>
-                                <%= data.invalid.join('、') %>
+    <tr><td>無効</td>　<td>  <% if (data.invalid && data.invalid.length > 0) { %>
+                                <% if(Array.isArray(data.invalid)){%>
+                                    <%= data.invalid.join('、') %>
+                                <% } else { %>
+                                    <%= data.invalid %>
+                                <% } %>
                             <% } else { %>
-                                なし
+                                  なし
                             <% } %></td></tr>
     <tr></tr>
     <tr><td><a href="/mh/edit/<%= data.name %>">編集</a></td>

@@ -19,17 +19,17 @@ let mh = [
   { id: 9, name: "イヴェルカーナ", species: "古龍種", week: ["火"], resist: ["水"], invalid: ["氷"] },
 ];
 
-app.get("/mh_add", (req, res) => {
+app.post("/mh_add", (req, res) => {
   let maxid = mh.length ? Math.max(...mh.map(item => item.id)) : 0;
   let id = maxid + 1;
-  let name = req.query.name;
-  let species= req.query.species;
-  let week= req.query.week;
-  let resist= req.query.resist;
-  let invalid=req.query.invalid;
+  let name = req.body.name;
+  let species= req.body.species;
+  let week= req.body.week;
+  let resist= req.body.resist;
+  let invalid=req.body.invalid;
   let newdata = { id: id, name: name ,species: species, week:week,resist:resist,invalid:invalid};
   mh.push( newdata );
-  let select =req.query.submit_btn;
+  let select =req.body.submit_btn;
   if(select==="1"){
     res.redirect('/mh');
   }else if(select==="0"){
