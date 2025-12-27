@@ -18,11 +18,12 @@
       <% for( let row of data ) { %>
         <td>モンスター名:<a href="/mh/<%= row.species %>/<%= row.name %>"><%= row.name %></a></td>
         <td style="padding-left: 30px;"><a href="/mh/edit/<%= row.name %>">編集</a></td>
-        <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= row.species %>/<%= row.name %>/1">削除</a></td>
-        <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= row.species %>/<%= row.name %>/0">削除してホームに戻る</a></td></tr>
+        <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= row.species %>/<%= row.name %>/1" onclick="return confirm('本当に削除しますか？');">削除</a></td>
+        <td style="padding-left: 30px; color: red;"><a href="/mh/delete/<%= row.species %>/<%= row.name %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></td></tr>
       <% } %>
   </table>
   <p><a href="/mh/create">新規追加</a></p><br>
   <p><a href="/mh">ホームに戻る</a></p>
+  <p><a href="/">アプリ一覧に戻る</a></p>
 </body>
 </html>

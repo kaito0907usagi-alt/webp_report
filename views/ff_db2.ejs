@@ -20,11 +20,12 @@
       <% for( let row of data ) { %>
         <td>シリーズ名:<a href="/ff/<%= row.series %>/<%= row.year %>"><%= row.name %></a></td>
         <td style="padding-left: 30px;"><a href="/ff/edit/<%= row.year %>">編集</a></td>
-        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.year %>/1">削除</a></td>
-        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.year %>/0">削除してホームに戻る</a></td></tr>
+        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.year %>/1" onclick="return confirm('本当に削除しますか？');">削除</a></td>
+        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.year %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></td></tr>
       <% } %>
   </table>
   <p><a href="/ff/create">新規追加</a></p><br>
   <p><a href="/ff">ホームに戻る</a></p>
+  <p><a href="/">アプリ一覧に戻る</a></p>
 </body>
 </html>

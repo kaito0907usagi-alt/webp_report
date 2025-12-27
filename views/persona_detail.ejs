@@ -82,11 +82,13 @@
         <td><a href="/persona/edit/<%= data.name %>">編集</a></td>
         <td style="padding-left: 30px; color: red">
           <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/1"
+            onclick="return confirm('本当に削除しますか？');"
             >削除して戻る</a
           >
         </td>
         <td style="padding-left: 30px; color: red">
           <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/0"
+            onclick="return confirm('本当に削除しますか？');"
             >削除してホームに戻る</a
           >
         </td>
@@ -99,5 +101,6 @@
         ><%= data.arcana %>のペルソナ一覧に戻る</a
       >
     </p>
+    <p><a href="/">アプリ一覧に戻る</a></p>
   </body>
 </html>
