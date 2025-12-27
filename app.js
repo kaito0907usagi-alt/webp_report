@@ -7,6 +7,10 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.redirect('/public/main.html');
+});
+
 //1.FF
 let finalfantasy = [
   { id:1, series:"FinalFantasyI", year:"1987-12",  name:"Final Fantasy",    main:"true", device:"ファミリーコンピューター", explanation:"FFシリーズ初タイトル" },
