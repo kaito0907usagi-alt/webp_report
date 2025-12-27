@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ペルソナを追加する</title>
+  </head>
+  <body>
+    <h2>ペルソナを追加する</h2>
+    <form action="/persona_add" method="POST">
+      <label>ペルソナ名:</label>
+      <input type="text" size="80" name="name" required /><br />
+
+      <label>アルカナ:</label><br />
+      <select name="arcana" id="arcana" required>
+        <option value="">-- アルカナを選択してください --</option>
+        <option value="愚者">愚者</option>
+        <option value="魔術師">魔術師</option>
+        <option value="女教皇">女教皇</option>
+        <option value="女帝">女帝</option>
+        <option value="皇帝">皇帝</option>
+        <option value="法王">法王</option>
+        <option value="恋愛">恋愛</option>
+        <option value="戦車">戦車</option>
+        <option value="正義">正義</option>
+        <option value="隠者">隠者</option>
+        <option value="運命">運命</option>
+        <option value="剛毅">剛毅</option>
+        <option value="刑死者">刑死者</option>
+        <option value="死神">死神</option>
+        <option value="節制">節制</option>
+        <option value="悪魔">悪魔</option>
+        <option value="塔">塔</option>
+        <option value="星">星</option>
+        <option value="月">月</option>
+        <option value="太陽">太陽</option>
+        <option value="審判">審判</option>
+        <option value="永劫">永劫</option>
+      </select>
+      <br /><br />
+
+      <label>弱点:</label><br />
+      <input type="checkbox" name="week" value="斬" />斬
+      <input type="checkbox" name="week" value="打" />打
+      <input type="checkbox" name="week" value="貫" />貫
+      <input type="checkbox" name="week" value="火" />火
+      <input type="checkbox" name="week" value="氷" />氷
+      <input type="checkbox" name="week" value="雷" />雷
+      <input type="checkbox" name="week" value="風" />風
+      <input type="checkbox" name="week" value="光" />光
+      <input type="checkbox" name="week" value="闇" />闇 <br /><br />
+
+      <label>耐性:</label><br />
+      <input type="checkbox" name="resist" value="斬" />斬
+      <input type="checkbox" name="resist" value="打" />打
+      <input type="checkbox" name="resist" value="貫" />貫
+      <input type="checkbox" name="resist" value="火" />火
+      <input type="checkbox" name="resist" value="氷" />氷
+      <input type="checkbox" name="resist" value="雷" />雷
+      <input type="checkbox" name="resist" value="風" />風
+      <input type="checkbox" name="resist" value="光" />光
+      <input type="checkbox" name="resist" value="闇" />闇 <br /><br />
+
+      <label>無効:</label><br />
+      <input type="checkbox" name="invalid" value="斬" />斬
+      <input type="checkbox" name="invalid" value="打" />打
+      <input type="checkbox" name="invalid" value="貫" />貫
+      <input type="checkbox" name="invalid" value="火" />火
+      <input type="checkbox" name="invalid" value="氷" />氷
+      <input type="checkbox" name="invalid" value="雷" />雷
+      <input type="checkbox" name="invalid" value="風" />風
+      <input type="checkbox" name="invalid" value="光" />光
+      <input type="checkbox" name="invalid" value="闇" />闇 <br /><br />
+
+      <label>反射:</label><br />
+      <input type="checkbox" name="reflection" value="斬" />斬
+      <input type="checkbox" name="reflection" value="打" />打
+      <input type="checkbox" name="reflection" value="貫" />貫
+      <input type="checkbox" name="reflection" value="火" />火
+      <input type="checkbox" name="reflection" value="氷" />氷
+      <input type="checkbox" name="reflection" value="雷" />雷
+      <input type="checkbox" name="reflection" value="風" />風
+      <input type="checkbox" name="reflection" value="光" />光
+      <input type="checkbox" name="reflection" value="闇" />闇 <br /><br />
+
+      <label>吸収:</label><br />
+      <input type="checkbox" name="absorption" value="斬" />斬
+      <input type="checkbox" name="absorption" value="打" />打
+      <input type="checkbox" name="absorption" value="貫" />貫
+      <input type="checkbox" name="absorption" value="火" />火
+      <input type="checkbox" name="absorption" value="氷" />氷
+      <input type="checkbox" name="absorption" value="雷" />雷
+      <input type="checkbox" name="absorption" value="風" />風
+      <input type="checkbox" name="absorption" value="光" />光
+      <input type="checkbox" name="absorption" value="闇" />闇 <br /><br />
+
+      <label>合体例:</label><br />
+      ペルソナ1:<input type="text" name="example" /><br />
+      ペルソナ2:<input type="text" name="example" /><br />
+      ペルソナ3:<input type="text" name="example" /><br />
+      ペルソナ4:<input type="text" name="example" /><br />
+      ペルソナ5:<input type="text" name="example" /><br />
+      ペルソナ6:<input type="text" name="example" /><br /><br />
+
+      <button type="submit" name="submit_btn" value="1">
+        保存してホームに戻る
+      </button>
+      <button type="submit" name="submit_btn" value="0">
+        保存してシリーズ一覧に戻る
+      </button>
+      <button type="submit" name="submit_btn" value="2">
+        保存して続けて追加する
+      </button>
+    </form>
+    <p><a href="/persona">保存せずホームに戻る</a></p>
+  </body>
+</html>

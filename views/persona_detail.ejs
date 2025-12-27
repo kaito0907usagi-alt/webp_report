@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= data.name %></title>
+  </head>
+  <body>
+    <h2><%= data.name %>の詳細</h2>
+    <table>
+      <tr>
+        <td>ペルソナ名</td>
+        　
+        <td><%= data.name %></td>
+      </tr>
+      <tr>
+        <td>アルカナ</td>
+        　
+        <td><%= data.arcana %></td>
+      </tr>
+      <tr>
+        <td>弱点</td>
+        　
+        <td>
+          <% if (data.week && data.week.length > 0) { %> <%
+          if(Array.isArray(data.week)){%> <%= data.week.join('、') %> <% } else
+          { %> <%= data.week %> <% } %> <% } else { %> なし <% } %>
+        </td>
+      </tr>
+      <tr>
+        <td>耐性</td>
+        　
+        <td>
+          <% if (data.resist && data.resist.length > 0) { %> <%
+          if(Array.isArray(data.resist)){%> <%= data.resist.join('、') %> <% }
+          else { %> <%= data.resist %> <% } %> <% } else { %> なし <% } %>
+        </td>
+      </tr>
+      <tr>
+        <td>無効</td>
+        　
+        <td>
+          <% if (data.invalid && data.invalid.length > 0) { %> <%
+          if(Array.isArray(data.invalid)){%> <%= data.invalid.join('、') %> <% }
+          else { %> <%= data.invalid %> <% } %> <% } else { %> なし <% } %>
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td>反射</td>
+        　
+        <td>
+          <% if (data.reflection && data.reflection.length > 0) { %> <%
+          if(Array.isArray(data.reflection)){%> <%= data.reflection.join('、')
+          %> <% } else { %> <%= data.reflection %> <% } %> <% } else { %> なし
+          <% } %>
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td>吸収</td>
+        　
+        <td>
+          <% if (data.absorption && data.absorption.length > 0) { %> <%
+          if(Array.isArray(data.absorption)){%> <%= data.absorption.join('、')
+          %> <% } else { %> <%= data.absorption %> <% } %> <% } else { %> なし
+          <% } %>
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td>合体例</td>
+        　
+        <td>
+          <% if (data.example && data.example.length > 0) { %> <%
+          if(Array.isArray(data.example)){%> <%= data.example.filter(x => x!=="").join(' × ') %>
+           <% } else { %> <%= data.example %> <% } %> <% }
+          else { %> なし <% } %>
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td><a href="/persona/edit/<%= data.name %>">編集</a></td>
+        <td style="padding-left: 30px; color: red">
+          <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/1"
+            >削除して戻る</a
+          >
+        </td>
+        <td style="padding-left: 30px; color: red">
+          <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/0"
+            >削除してホームに戻る</a
+          >
+        </td>
+      </tr>
+    </table>
+    <p><a href="/persona">ホームに戻る</a></p>
+    <br />
+    <p>
+      <a href="/persona/<%= data.arcana %>"
+        ><%= data.arcana %>のペルソナ一覧に戻る</a
+      >
+    </p>
+  </body>
+</html>

@@ -27,18 +27,18 @@ let finalfantasy = [
   { id:17,series:"FinalFantasyothers",year:"2025-09",  name:"FINALFANTASYTACTICS THE IVALICE CHRONICLES",  main:"false", device:"PS5", explanation:"タクティカルRPGの金字塔" },
 ];
 
-app.get("/ff_add", (req, res) => {
+app.post("/ff_add", (req, res) => {
   let maxid = finalfantasy.length ? Math.max(...finalfantasy.map(item => item.id)) : 0;
   let id = maxid + 1;
-  let series = req.query.series;
-  let year=req.query.year;
-  let name = req.query.name;
-  let main= req.query.main;
-  let device= req.query.device;
-  let explanation= req.query.explanation;
+  let series = req.body.series;
+  let year=req.body.year;
+  let name = req.body.name;
+  let main= req.body.main;
+  let device= req.body.device;
+  let explanation= req.body.explanation;
   let newdata = { id: id, series: series,year: year, name: name ,main: main, device: device,explanation: explanation};
   finalfantasy.push( newdata );
-  let select =req.query.submit_btn;
+  let select =req.body.submit_btn;
   if(select==="1"){
     res.redirect('/ff');
   }else if(select==="0"){

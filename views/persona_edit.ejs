@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>データの編集</title>
+</head>
+<body>
+    <h2><%= data.name %>を編集する</h2>
+    <form action="/persona/update/<%= data.id %>" method="POST">
+        <label>ペルソナ名:</label>
+        <input type="text" size ="80"name="name" value="<%= data.name %>" required><br>
+        <label>アルカナ:</label><br>
+        <select name="arcana" id="arcana" required>
+        <option value="">--1 つ選択してください--</option>
+        <% let arcanalist = ["愚者", "魔術師", "女教皇", "女帝", "皇帝", "法王", "恋愛", "戦車", "正義", "隠者", "運命", "剛毅", "刑死者", "死神", "節制", "悪魔", "塔", "星", "月", "太陽", "審判", "永劫"];　%>
+        <% for (let i =0; i < arcanalist.length; i++){%>
+            <option value="<%= arcanalist[i] %>"
+            <% if(data.arcana == arcanalist[i] ){
+                %>selected
+            <% } %>
+        > <%= arcanalist[i]%>
+            </option>
+        <%} %>
+        
+        
+        </select><br>
+
+        <label>弱点:</label><br>
+        <% let elements = ["斬", "打", "貫", "火", "氷", "雷", "風", "光", "闇"] %>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="week" value="<%= elements[i] %>" 
+            <% if (data.week && data.week.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>耐性:</label><br>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="resist" value="<%= elements[i] %>" 
+            <% if (data.resist && data.resist.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>無効:</label><br>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="invalid" value="<%= elements[i] %>" 
+            <% if (data.invalid && data.invalid.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>反射:</label><br>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="reflection" value="<%= elements[i] %>" 
+            <% if (data.reflection && data.reflection.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>吸収:</label><br>
+        <% for (let i = 0; i < elements.length; i++) { %>
+            <input type="checkbox" name="absorption" value="<%= elements[i] %>" 
+            <% if (data.absorption && data.absorption.includes(elements[i])) { %>
+                checked
+            <% } %>
+            > <%= elements[i] %>
+        <% } %>
+        <br><br>
+
+        <label>合体例:</label><br>
+        <% for (let i = 0; i < 6; i++) { %>
+            <% let materialName = ""; 
+                if (data.example) {
+                    if (data.example[i]) {
+                        materialName = data.example[i];
+                    }
+                }
+            %>
+
+            合体元ペルソナ<%= i + 1 %>: 
+            <input type="text" name="example" value="<%= materialName %>">
+            <br>
+        <% } %>
+        <br>
+
+        <button type="submit" name="submit_btn" value="1">保存してホームに戻る</button>
+        <button type="submit" name="submit_btn" value="0">保存してシリーズ一覧に戻る</button>
+        <button type="submit" name="submit_btn" value="2">保存して詳細に戻る</button>
+    </form>
+    <p><a href="/persona/<%= data.arcana %>/<%= data.name %>">詳細に戻る</a></p><br>
+    <p><a href="/persona/<%= data.arcana %>"><%= data.arcana%>のペルソナ一覧に戻る</a></p><br>
+    <p><a href="/persona">ホームに戻る</a></p>
+</body>
+</html>
