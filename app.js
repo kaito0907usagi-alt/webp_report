@@ -32,6 +32,10 @@ let finalfantasy = [
   { id:17,series:"FinalFantasyothers",year:"2025-09",  name:"FINALFANTASYTACTICS THE IVALICE CHRONICLES",  main:"false", device:"PS5", explanation:"タクティカルRPGの金字塔" },
 ];
 
+app.get("/ff/create",(req,res)=>{
+  res.redirect("/public/ff_add.html");
+});
+
 app.post("/ff_add", (req, res) => {
   let maxid = finalfantasy.length ? Math.max(...finalfantasy.map(item => item.id)) : 0;
   let id = maxid + 1;
@@ -142,6 +146,10 @@ let mh = [
   { id: 8, name: "レーシェン", species: "遺存種", week: ["火"], resist: ["氷"], invalid: ["水"] },
   { id: 9, name: "イヴェルカーナ", species: "古龍種", week: ["火"], resist: ["水"], invalid: ["氷"] },
 ];
+
+app.get("/mh/create",(req,res)=>{
+  res.redirect("/public/mh_add.html");
+});
 
 app.post("/mh_add", (req, res) => {
   let maxid = mh.length ? Math.max(...mh.map(item => item.id)) : 0;
@@ -258,6 +266,10 @@ let persona = [
   { id: 21, name: "メサイア", arcana: "審判", week: [], resist: ["火", "氷", "雷", "風"], invalid: [], reflection: ["光","闇"], absorption: [], example: ["オルフェウス", "タナトス"] },
   { id: 22, name: "メタトロン", arcana: "永劫", week: ["雷", "闇"], resist: ["氷"], invalid: ["火", "風", "光"], reflection: [], absorption: [], example: ["ウリエル", "ラファエル", "ガブリエル", "ミカエル"] }
 ];
+
+app.get("/persona/create",(req,res)=>{
+  res.redirect("/public/persona_add.html");
+});
 
 app.post("/persona_add", (req, res) => {
   let maxid = persona.length ? Math.max(...persona.map(item => item.id)) : 0;
