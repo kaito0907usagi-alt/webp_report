@@ -1,4 +1,25 @@
 \chapter{FFのデータベース}
-\section{機能}
-このWebサイトでは，FinalFantasyシリーズのタイトル一覧を表示する機能を実装する．
-機能として，一覧表示，詳細表示，
+\section{概要}
+このWebサイトでは，FinalFantasyシリーズのタイトル一覧を表示する．
+機能として，ナンバリング一覧表示，派生作品一覧表示，詳細表示，データの編集，追加，削除がある．
+ファイルはff.js，ff\_db1.ejs，ff\_db2.ejs，ff\_detail.ejs，ff\_edit.ejs，ff\_add.htmlの5つのファイルで構成されている．
+\section{データ構造}
+ff.jsには，ファイナルファンタジーの作品情報を保存する配列（fainalfantasy）がある．
+データ構造の使用例は，表\ref{ff_data}に示す．nameは，タイトル名を示す．idは，作品を一意に指定できるように番号が付与される．
+seriesは，派生元の作品を示す．yearは，作品の発売年月を示す．mainは，第一作目なのかを示す．
+deviceは，作品の対応ハードを示す．explanationでは，作品の説明を示す．
+\begin{table}[H]
+    \centering
+    \caption{ffのデータ構造の使用例}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        name & id & series & year & main & device & explanation \\ \hline
+        Final Fantasy & 1 & FinalFantasyI & 1987-12 & true & ファミリーコンピューター & FF シリーズ初タイトル \\ \hline
+        Final Fantasy II & 2 & FinalFantasyII & 1988-12 & true & ファミリーコンピューター & 熟練度システム \\ \hline
+        Final Fantasy III & 3 & FinalFantasyIII & 1990-04 & true & ファミリーコンピューター & 初のジョブシステム \\ \hline
+        Final Fantasy XIII & 4 & FinalFantasyXIII & 2009-12 & true & PS3 & オプティマシステム \\ \hline
+        Final Fantasy XII-2 & 5 & FinalFantasyXIII & 2011-12 & false & PS3 & FF13 の続編 \\ \hline
+        \begin{tabular}[c]{@{}l@{}}FINALFANTASYTACTICS \\ THE IVALICE CHRONICLES\end{tabular} & 6 & FinalFantasyothers & 2025-09 & false & PS5 & タクティカル RPG の金字塔 \\ \hline
+    \end{tabular}
+\end{table}
+
