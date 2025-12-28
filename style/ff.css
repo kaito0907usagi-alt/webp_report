@@ -1,0 +1,60 @@
+body {
+    background-color: #000066; /* FF伝統のメニューブルー */
+    color: #ffffff;            /* 純白のテキスト */
+    font-family: sans-serif;   
+    padding: 30px;             
+    line-height: 1.8;          
+}
+
+h2 {
+    color: #ffffff;            
+    border-bottom: 3px solid #e0e0e0; /* シルバーの境界線 */
+    text-shadow: 2px 2px 4px #000000;
+}
+
+a {
+    color: #ffff00;            /* 指カーソルや選択時をイメージしたイエロー */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ffffff;            /* ホバーで白く光る演出 */
+    opacity: 0.9;
+}
+
+.grid-container {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px; 
+}
+
+.series {
+  border: 2px solid #ffffff;  /* メニュー枠の白線 */
+  padding: 20px;          
+  text-align: center;     
+  background: linear-gradient(135deg, #000080 0%, #000033 100%); /* 青のグラデーション */
+}
+
+.delete a {
+    color: #ff0000;         /* 警告の赤 */
+}
+
+table {
+    border-collapse: collapse; 
+    color: #ffffff;         
+    width: 100%;
+    margin-top: 20px;
+    background: #000055;    /* 濃い紺色 */
+    border: 3px solid #ffffff; /* 外枠を強調 */
+}
+
+/* 表の中の仕切り線（td） */
+td {
+    padding: 20px;
+    border: 1px solid #4444ff; /* 内部の仕切りは明るい青 */
+}
+
+.td a {
+    color: #ffff00;         
+}

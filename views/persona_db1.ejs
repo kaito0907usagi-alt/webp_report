@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="/style/persona.css">
     <meta charset="utf-8" />
     <title>ペルソナ３リロードのアルカナ一覧</title>
   </head>
   <body>
     <h2>ペルソナ３リロードのアルカナ一覧</h2>
-    <table>
-      <% for( let row of data ) { %>
-        <tr><td>アルカナ:<a href="/persona/<%= row %>"><%= row %></a></td></tr>
-      <% } %>
-      </tr>
-    </table>
+    <div class="grid-container">
+    <% for (let row of data) { %>
+      <div class="arcana-item">
+        <a href="/persona/<%= row %>"><%= row %></a>
+      </div>
+    <% } %>
+    </div>
     <p><a href="/persona/create">新規追加</a></p>
     <p><a href="/">アプリ一覧に戻る</a></p>
   </body>

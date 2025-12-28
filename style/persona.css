@@ -1,0 +1,66 @@
+body {
+    background-color: #1269CC; /* （ペルソナ3のイメージ） */
+    color: #ffffff;            /* 文字は白 */
+    font-family: sans-serif;   /* すっきりしたフォント */
+    padding: 30px;             /* 画面の端に余裕を持たせる */
+    line-height: 1.8;          /* 行間を広げて読みやすく */
+}
+h2{
+    color: #ffffff;
+    border-bottom: 5px solid #ffffff;
+}
+a{
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+a:hover{
+    opacity:0.8;
+}
+
+.grid-container {
+  display: grid; /* 「今からグリッド（タイル並び）にするよ！」という宣言 */
+  
+  /* 最低150pxの幅で、入るだけ横に並べる */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  
+  gap: 10px; /* 箱と箱の間のスキマ */
+}
+
+.arcana-item {
+  border: 1px solid #ccc; /* 箱の枠線 */
+  padding: 20px;          /* 箱の中の余白 */
+  text-align: center;     /* 文字を真ん中に */
+  background: white;      /* 箱の色 */
+}
+
+/* 箱の中のリンク */
+.arcana-item a {
+    display: block; /* 箱全体をクリックできるようにする */
+    padding: 20px 10px;
+    color: #1269CC;
+    text-decoration: none; /* 下線を消してスッキリ */
+}
+
+.delete a{
+    color:#ff0000
+}
+
+table {
+    border-collapse: collapse; /* 1. 隣り合う線を1本にまとめる（必須！） */
+    color: #1269CC;
+    width: 100%;
+    margin-top: 20px;
+    background: #ffffff; 
+    border: 2px solid #ffffff;  /* 3. 表の一番外側の枠線（白、2ピクセルの太さ） */
+}
+
+/* 表の中の仕切り線（td） */
+td {
+    padding: 20px;
+    border: 1px solid #1269CC;  /* 4. マス目ごとの枠線（白、1ピクセルの太さ） */
+}
+
+.td a{
+    color: #1269CC;
+}

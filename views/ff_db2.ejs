@@ -11,6 +11,7 @@
 <!Doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="/style/ff.css">
   <meta charset="utf-8">
   <title><%= displayTitle %>シリーズの一覧</title>
 </head>
@@ -19,9 +20,9 @@
   <table>
       <% for( let row of data ) { %>
         <td>シリーズ名:<a href="/ff/<%= row.series %>/<%= row.name %>"><%= row.name %></a></td>
-        <td style="padding-left: 30px;"><a href="/ff/edit/<%= row.name %>">編集</a></td>
-        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.name %>/1" onclick="return confirm('本当に削除しますか？');">削除</a></td>
-        <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= row.series %>/<%= row.name %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></td></tr>
+        <td ><a href="/ff/edit/<%= row.name %>">編集</a></td>
+        <td class="delete"><a href="/ff/delete/<%= row.series %>/<%= row.name %>/1" onclick="return confirm('本当に削除しますか？');">削除</a></td>
+        <td class="delete"><a href="/ff/delete/<%= row.series %>/<%= row.name %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></td></tr>
       <% } %>
   </table>
   <p><a href="/ff/create">新規追加</a></p><br>

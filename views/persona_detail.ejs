@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="/style/persona.css">
     <meta charset="utf-8" />
     <title><%= data.name %></title>
   </head>
@@ -78,28 +79,20 @@
         </td>
       </tr>
       <tr></tr>
-      <tr>
-        <td><a href="/persona/edit/<%= data.name %>">編集</a></td>
-        <td style="padding-left: 30px; color: red">
-          <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/1"
-            onclick="return confirm('本当に削除しますか？');"
-            >削除して戻る</a
-          >
-        </td>
-        <td style="padding-left: 30px; color: red">
-          <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/0"
-            onclick="return confirm('本当に削除しますか？');"
-            >削除してホームに戻る</a
-          >
-        </td>
-      </tr>
     </table>
-    <p><a href="/persona">ホームに戻る</a></p>
-    <br />
+    <br>
+    <p>  
+      <a href="/persona/edit/<%= data.name %>">編集</a>
+    </p>
+    <p class="delete">
+        <a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/1" onclick="return confirm('本当に削除しますか？');">削除して戻る</a>
+    <p class="delete"><a href="/persona/delete/<%= data.arcana %>/<%= data.name %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></p>
+    <br>
     <p>
-      <a href="/persona/<%= data.arcana %>"
-        ><%= data.arcana %>のペルソナ一覧に戻る</a
-      >
+      <a href="/persona">ホームに戻る</a>
+    </p>
+    <p>
+      <a href="/persona/<%= data.arcana %>" ><%= data.arcana %>のペルソナ一覧に戻る</a>
     </p>
     <p><a href="/">アプリ一覧に戻る</a></p>
   </body>

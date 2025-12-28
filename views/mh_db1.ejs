@@ -1,16 +1,17 @@
 <!Doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="/style/mh.css">
   <meta charset="utf-8">
   <title>モンスターハンターワールド：アイスボーンの大型モンスター種族一覧</title>
 </head>
 <body>
   <h2>モンスターハンターワールド：アイスボーンの大型モンスター種族一覧</h2>
-    <table>
+    <div class="grid-container" >
       <% for( let row of data ) { %>
-        <tr><td>種族名:<a href="/mh/<%= row %>"><%= row %></a></td></tr>
+        <div class="species"><a href="/mh/<%= row %>"><%= row %></a></div>
       <% } %>
-  </table>
+      </div>
   <p><a href="/mh/create">新規追加</a></p>
   <p><a href="/">アプリ一覧に戻る</a></p>
 </body>

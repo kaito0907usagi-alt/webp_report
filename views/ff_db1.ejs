@@ -1,17 +1,18 @@
 <!Doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="/style/ff.css">
   <meta charset="utf-8">
   <title>FFのシリーズ一覧</title>
 </head>
 <body>
   <h2>FFのシリーズ一覧</h2>
-  <table>
+  <div class="grid-container">
       <% for( let row of data ) { %>
-        <tr><td>シリーズ名:<a href="/ff/<%= row.series %>"><%= row.name %></a></td></tr>
+        <div class="series"><td><a href="/ff/<%= row.series %>"><%= row.name %></a></div>
       <% } %>
-        <tr><td>シリーズ名:<a href="/ff/FinalFantasyothers">その他</a></td></tr>
-  </table>
+        <div class="series"><a href="/ff/FinalFantasyothers">その他</a></div>
+        </div>
   <p><a href="/ff/create">新規追加</a></p>
   <p><a href="/">アプリ一覧に戻る</a></p>
 </body>

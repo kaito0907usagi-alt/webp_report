@@ -1,6 +1,7 @@
 <!Doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="/style/ff.css">
   <meta charset="utf-8">
   <title><%= data.name %></title>
 </head>
@@ -13,10 +14,11 @@
     <tr><td>対応ハード</td>　<td><%= data.device %></td></tr>
     <tr><td>説明</td>　<td><%= data.explanation %></td></tr>
     <tr></tr>
-    <tr><td><a href="/ff/edit/<%= data.name %>">編集</a></td>
-      <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= data.series %>/<%= data.name %>/1" onclick="return confirm('本当に削除しますか？');">削除して戻る</a></td>
-      <td style="padding-left: 30px; color: red;"><a href="/ff/delete/<%= data.series %>/<%= data.name %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></td></tr>
   </table>
+  <p><a href="/ff/edit/<%= data.name %>">編集</a></p>
+  <p class="delete"><a href="/ff/delete/<%= data.series %>/<%= data.name %>/1" onclick="return confirm('本当に削除しますか？');">削除して戻る</a></td>
+  <p class="delete"><a href="/ff/delete/<%= data.series %>/<%= data.name %>/0" onclick="return confirm('本当に削除しますか？');">削除してホームに戻る</a></td></tr>
+  <br>
   <p><a href="/ff">ホームに戻る</a></p>
   <p><a href="/ff/<%= data.series %>">シリーズ一覧に戻る</a></p>
   <p><a href="/">アプリ一覧に戻る</a></p>

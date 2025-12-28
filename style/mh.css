@@ -1,0 +1,66 @@
+body {
+    background-color: #0b1a27; /* MHWIの深い紺色 */
+    color: #e0f2f1;            /* 雪のような青みのある白 */
+    font-family: sans-serif;   
+    padding: 30px;             
+    line-height: 1.8;          
+}
+
+h2 {
+    color: #a5d8ff;            /* 氷のような明るい水色 */
+    border-bottom: 5px solid #a5d8ff;
+}
+
+a {
+    color: #a5d8ff;            /* 氷のような明るい水色 */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+.grid-container {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px; 
+}
+
+.species {
+  border: 1px solid #4a90e2; /* 氷の層のような青 */
+  padding: 20px;          
+  text-align: center;     
+  background: #162e4a;      /* 鋼鉄のような暗い紺 */
+}
+
+/* 箱の中のリンク */
+.species a {
+    display: block; 
+    padding: 20px 10px;
+    color: #a5d8ff;         /* 水色 */
+    text-decoration: none; 
+}
+
+.delete a {
+    color: #ff0000;         /* 変更なし */
+}
+
+table {
+    border-collapse: collapse; 
+    color: #a5d8ff;         /* 水色 */
+    width: 100%;
+    margin-top: 20px;
+    background: #162e4a;    /* 鋼鉄のような暗い紺 */
+    border: 2px solid #a5d8ff; 
+}
+
+/* 表の中の仕切り線（td） */
+td {
+    padding: 20px;
+    border: 1px solid #4a90e2; 
+}
+
+.td a {
+    color: #a5d8ff;         /* 水色 */
+}

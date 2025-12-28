@@ -1,15 +1,81 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>アプリケーション一覧</title>
-</head>
-<body>
-  <h2>アプリケーション一覧</h2>
+  <head>
+    <style>
+      body {
+        /* 深みのあるダークネイビーに変更（各作品のダークな世界観に合わせる） */
+        background-color: #0d1117;
+        color: #e6edf3;
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+          "Hiragino Sans", sans-serif;
+        padding: 30px;
+        line-height: 1.8;
+      }
+
+      h2 {
+        color: #58a6ff; /* 爽やかなブルー（P3RやFFの魔法をイメージ） */
+        border-bottom: 2px solid #30363d;
+        text-shadow: 1px 1px 2px #000000;
+        padding-bottom: 10px;
+      }
+
+      a {
+        color: #44ffcc; /* 蛍光感のあるエメラルド（選択肢として目立つ色） */
+        text-decoration: none; /* 下線を消してスッキリと */
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: #ffffff;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      table {
+        border-collapse: collapse;
+        color: #ffffff;
+        width: 100%;
+        margin-top: 20px;
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        overflow: hidden; /* 角丸をテーブルに適用 */
+      }
+
+      /* 表の中の仕切り線 */
+      td {
+        padding: 15px 20px;
+        border-bottom: 1px solid #30363d;
+      }
+
+      /* 最後の行の境界線を消す */
+      tr:last-child td {
+        border-bottom: none;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <title>アプリケーション一覧</title>
+  </head>
+  <body>
+    <h2>アプリケーション一覧</h2>
     <table>
-      <tr><td ><a href="/ff">ファイナルファンタジー作品情報アプリ</a></td></tr>
-      <tr><td ><a href="/mh">モンスターハンターワールド：アイスボーン登場モンスター情報アプリ</a></td></tr>
-      <tr><td ><a href="/persona">ペルソナ３リロードペルソナ情報アプリ</a></td></tr>
-  </table>
-</body>
+      <tr>
+        <td><a href="/ff">ファイナルファンタジー作品情報アプリ</a></td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/mh"
+            >モンスターハンターワールド：アイスボーン登場モンスター情報アプリ</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td><a href="/persona">ペルソナ３リロードペルソナ情報アプリ</a></td>
+      </tr>
+    </table>
+  </body>
 </html>
