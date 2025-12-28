@@ -16,6 +16,14 @@
         <label>タイトル名:</label>
         <input type="text" size ="80"name="name" value="<%= data.name %>" required><br>
 
+        <label>一作目:</label><br>
+        <% if (data.main === "true") { %>
+            <input type="checkbox" name="main" value="true" checked> はい
+        <% } else { %>
+            <input type="checkbox" name="main" value="true"> はい
+        <% } %>
+        <br><br>
+
         <label>対応ハード:</label><br>
         <textarea name="device" rows="4" cols="40"><%= data.device %></textarea><br>
 
@@ -26,7 +34,7 @@
         <button type="submit" name="submit_btn" value="0">保存してシリーズ一覧に戻る</button>
         <button type="submit" name="submit_btn" value="2">保存して詳細に戻る</button>
     </form>
-    <p><a href="/ff/<%= data.series %>/<%= data.year %>">詳細に戻る</a></p><br>
+    <p><a href="/ff/<%= data.series %>/<%= data.name %>">詳細に戻る</a></p><br>
     <p><a href="/ff/<%= data.series %>">シリーズ一覧に戻る</a></p><br>
     <p><a href="/ff">ホームに戻る</a></p>
     <p><a href="/">アプリ一覧に戻る</a></p>

@@ -1,5 +1,6 @@
 "use strict";
 
+const { name } = require("ejs");
 const express = require("express");
 const app = express();
 
@@ -65,10 +66,10 @@ app.get("/ff", (req, res) => {
 });
 
 // Edit
-app.get("/ff/edit/:year", (req, res) => {
+app.get("/ff/edit/:name", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  const year = req.params.year;
-  const detail = finalfantasy.find(item=> item.year ===  year );
+  const name = req.params.name;
+  const detail = finalfantasy.find(item=> item.name ===  name );
   res.render('ff_edit', {data: detail} );
 });
 
@@ -78,7 +79,7 @@ app.post("/ff/update/:id", (req, res) => {
   const idx = finalfantasy.findIndex(item => item.id === id);
   if (idx !== -1) {
     const series =req.body.series;
-    const year =req.body.year;
+    const name =req.body.name;
     finalfantasy[idx].series = req.body.series;
     finalfantasy[idx].year = req.body.year;
     finalfantasy[idx].name = req.body.name;
@@ -96,18 +97,18 @@ app.post("/ff/update/:id", (req, res) => {
     } else if (select === "0") {
       res.redirect('/ff/' + series);
     } else {
-      res.redirect('/ff/' + series + '/' + year); 
+      res.redirect('/ff/' + series + '/' + name); 
     }
 }
   
 });
 
 // Delete
-app.get("/ff/delete/:series/:year/:select", (req, res) => {
+app.get("/ff/delete/:series/:name/:select", (req, res) => {
   const series =req.params.series;
-  const year =req.params.year;
+  const name =req.params.name;
   const select =req.params.select;
-  const targetid =finalfantasy.findIndex(item => item.year === year);
+  const targetid =finalfantasy.findIndex(item => item.name === name);
   if(targetid!== -1){
   finalfantasy.splice( targetid, 1 );
   }
@@ -126,10 +127,10 @@ app.get("/ff/:series", (req, res) => {
 });
 
 // 2. 詳細ページ
-app.get("/ff/:series/:year", (req, res) => {
+app.get("/ff/:series/:name", (req, res) => {
   const series = req.params.series;
-  const year = req.params.year;
-  const detail = finalfantasy.find(item => item.series === series && item.year === year);
+  const name = req.params.name;
+  const detail = finalfantasy.find(item => item.series === series && item.name === name);
   res.render('ff_detail', { data: detail });
 });
 
@@ -174,8 +175,8 @@ app.post("/mh_add", (req, res) => {
 // Read
 app.get("/mh", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  const maindata=mh;
-  res.render('mh_db1', { data: maindata });
+  let specieslist =["牙竜種","鳥竜種","獣竜種","魚竜種","飛竜種","牙獣種","古龍種","遺存種"];
+  res.render('mh_db1', { data: specieslist });
 });
 
 // Edit
@@ -297,7 +298,8 @@ app.post("/persona_add", (req, res) => {
 // Read
 app.get("/persona", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  res.render('persona_db1');
+  let arcanalist=["愚者", "魔術師", "女教皇", "女帝", "皇帝", "法王", "恋愛", "戦車", "正義", "隠者", "運命", "剛毅", "刑死者", "死神", "節制", "悪魔", "塔", "星", "月", "太陽", "審判", "永劫"];
+  res.render('persona_db1',{data:arcanalist});
 });
 
 // Edit
