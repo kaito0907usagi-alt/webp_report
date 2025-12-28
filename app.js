@@ -31,6 +31,7 @@ let finalfantasy = [
   { id:15,series:"FinalFantasyXV", year:"2016-11", name:"Final Fantasy XV", main:"true", device:"PS4", explanation:"オープンワールド初実装" },
   { id:16,series:"FinalFantasyXVI", year:"2023-06", name:"Final Fantasy XVI", main:"true", device:"PS5", explanation:"初の完全アクションタイトル" },
   { id:17,series:"FinalFantasyothers",year:"2025-09",  name:"FINALFANTASYTACTICS THE IVALICE CHRONICLES",  main:"false", device:"PS5", explanation:"タクティカルRPGの金字塔" },
+  { id:18,series:"FinalFantasyVII",year:"2020-04",name:"Final FantasyVII REMAKE",main:"false",device:"PS4 PS5 PC",explanation:"FF7リメイクプロジェクト第一作目"}
 ];
 
 app.get("/ff/create",(req,res)=>{
