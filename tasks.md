@@ -1,6 +1,6 @@
 #　レポート課題タスク
 
-- [ ] 開発者向けドキュメントの作業
+- [x] 開発者向けドキュメントの作業
   - [x] 対象とするシステムの決定 :thinking:
   - [x] データ構造の決定 :thinking:
   - [x] ページ構造の検討 :thinking:
@@ -9,11 +9,11 @@
   - [x] ページ遷移図の作成 :writing_hand:
   - [x] ページ構造の決定
   - [x] ドキュメントの構成の検討 :thinking:
-  - [ ] 概要 :writing_hand:
-  - [ ] HTTP メソッドとリソース名一覧 :writing_hand:
-  - [ ] データ構造 :writing_hand:
-  - [ ] リソース名ごとの機能の詳細 :writing_hand:
-  - [ ] ページ遷移の再検討　:thinking:
+  - [x] 概要 :writing_hand:
+  - [x] HTTP メソッドとリソース名一覧 :writing_hand:
+  - [x] データ構造 :writing_hand:
+  - [x] リソース名ごとの機能の詳細 :writing_hand:
+  - [x] ページ遷移の再検討　:thinking:
 - [ ] 管理者向けドキュメントの構成
   - [ ] インストールから起動までの手順確認 :computer:
   - [ ] インストール方法 :writing_hand:
